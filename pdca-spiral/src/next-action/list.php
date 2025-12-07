@@ -73,10 +73,10 @@ require_once __DIR__ . '/../views/layouts/header.php';
     }
     
     $statusLabels = [
-        'pending' => ['label' => '未着手', 'color' => 'background: #f5f5f5; color: #666;'],
-        'in_progress' => ['label' => '進行中', 'color' => 'background: #bbdefb; color: #1565c0;'],
-        'completed' => ['label' => '完了', 'color' => 'background: #c8e6c9; color: #2e7d32;'],
-        'cancelled' => ['label' => 'キャンセル', 'color' => 'background: #ffcdd2; color: #c62828;']
+        'pending' => ['label' => '未着手', 'color' => 'background: #f5f5f5; color: #666;', 'dotColor' => '#ef4444'],
+        'in_progress' => ['label' => '進行中', 'color' => 'background: #bbdefb; color: #1565c0;', 'dotColor' => '#eab308'],
+        'completed' => ['label' => '完了', 'color' => 'background: #c8e6c9; color: #2e7d32;', 'dotColor' => '#22c55e'],
+        'cancelled' => ['label' => 'キャンセル', 'color' => 'background: #ffcdd2; color: #c62828;', 'dotColor' => '#6b7280']
     ];
     ?>
     
@@ -95,10 +95,8 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 <div class="card">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <div class="flex items-center gap-2 mb-2">
-                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background: #1976d2;">
-                                    <?php echo mb_substr($action->getUsername(), 0, 1); ?>
-                                </div>
+                            <div class="mb-2 flex items-center gap-2">
+                                <span style="color: <?php echo $statusLabels[$status]['dotColor']; ?>; font-size: 1.25rem;">●</span>
                                 <span class="font-semibold text-gray-800">
                                     <?php echo e($action->getUsername()); ?>
                                 </span>
