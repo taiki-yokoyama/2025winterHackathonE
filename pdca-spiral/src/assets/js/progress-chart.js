@@ -28,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Prepare data for Chart.js - weekly averages
     const labels = data.map((week) => {
-        const date = new Date(week.week_start);
-        return `${date.getMonth() + 1}/${date.getDate()}週`;
+        return `${week.cycle_number}週目`;
     });
 
     const scores = data.map((week) => week.average_score);
@@ -119,13 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         title: function (context) {
                             const index = context[0].dataIndex;
                             const week = data[index];
-                            const startDate = new Date(week.week_start);
-                            const endDate = new Date(week.week_end);
-                            return `${startDate.getFullYear()}年${
-                                startDate.getMonth() + 1
-                            }月${startDate.getDate()}日 - ${
-                                endDate.getMonth() + 1
-                            }月${endDate.getDate()}日`;
+                            return `${week.cycle_number}週目`;
                         },
                         label: function (context) {
                             return `週平均スコア: ${context.parsed.y.toFixed(
@@ -135,7 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         afterLabel: function (context) {
                             const index = context.dataIndex;
                             const week = data[index];
-                            return [`評価数: ${week.evaluation_count}件`];
+                            const lines = [`評価数: ${week.evaluation_count}件`];
+                            
+                            // Add date range if available
+                            if (week.week_start && week.week_end) {
+                                const startDate = new Date(week.week_start);
+                                const endDate = new Date(week.week_end);
+                                if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+                                    lines.push(`期間: ${startDate.getMonth() + 1}/${startDate.getDate()} - ${endDate.getMonth() + 1}/${endDate.getDate()}`);
+                                }
+                            }
+                            
+                            return lines;
                         },
                     },
                 },
