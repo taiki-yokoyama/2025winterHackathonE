@@ -27,6 +27,9 @@ class DashboardController {
         $recentEvaluations = Evaluation::findByCycle($currentCycle->getId());
         $actions = NextAction::findByCycle($currentCycle->getId());
         
+        // Get weekly aggregated data for chart
+        $weeklyChartData = Evaluation::findByTeamGroupedByWeek($teamId);
+        
         // Get only pending and in_progress actions
         $pendingActions = array_filter($actions, function($action) {
             return in_array($action->getStatus(), ['pending', 'in_progress']);
@@ -43,6 +46,7 @@ class DashboardController {
             'statistics' => $statistics,
             'recent_evaluations' => $recentEvaluations,
             'pending_actions' => array_values($pendingActions),
+            'weekly_chart_data' => $weeklyChartData,
             'all_cycles' => PDCACycleService::getAllCycles($teamId)
         ];
     }

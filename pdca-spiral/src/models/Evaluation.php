@@ -210,6 +210,62 @@ class Evaluation {
     }
     
     /**
+     * Find evaluations by team grouped by week with averages
+     * 
+     * Groups evaluations by week (Monday-Sunday) and calculates weekly average scores.
+     * 
+     * @param int $teamId Team ID
+     * @return array Array of weekly data with structure:
+     *               [
+     *                   'week_start' => '2025-12-02',  // Monday of the week
+     *                   'week_end' => '2025-12-08',    // Sunday of the week
+     *                   'average_score' => 7.5,
+     *                   'evaluation_count' => 4
+     *               ]
+     */
+    public static function findByTeamGroupedByWeek(int $teamId): array {
+        try {
+            $db = Database::getConnection();
+            
+            // Calculate Monday of each week using DAYOFWEEK()
+            // DAYOFWEEK() returns 1 for Sunday, 2 for Monday, etc.
+            // Formula: (DAYOFWEEK(date) + 5) % 7 gives days since Monday
+            $stmt = $db->prepare(
+                "SELECT 
+                    DATE_SUB(DATE(created_at), INTERVAL (DAYOFWEEK(created_at) + 5) % 7 DAY) as week_start,
+                    AVG(score) as average_score,
+                    COUNT(*) as evaluation_count
+                 FROM evaluations
+                 WHERE team_id = :team_id
+                 GROUP BY week_start
+                 ORDER BY week_start ASC"
+            );
+            
+            $stmt->execute([':team_id' => $teamId]);
+            
+            $weeklyData = [];
+            while ($row = $stmt->fetch()) {
+                // Calculate week_end (Sunday) from week_start (Monday)
+                $weekStart = new DateTime($row['week_start']);
+                $weekEnd = clone $weekStart;
+                $weekEnd->modify('+6 days');
+                
+                $weeklyData[] = [
+                    'week_start' => $row['week_start'],
+                    'week_end' => $weekEnd->format('Y-m-d'),
+                    'average_score' => (float)$row['average_score'],
+                    'evaluation_count' => (int)$row['evaluation_count']
+                ];
+            }
+            
+            return $weeklyData;
+        } catch (PDOException $e) {
+            error_log("Evaluation findByTeamGroupedByWeek failed: " . $e->getMessage());
+            return [];
+        }
+    }
+    
+    /**
      * Hydrate evaluation objects from database result
      * 
      * @param PDOStatement $stmt Executed statement
