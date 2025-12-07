@@ -48,9 +48,6 @@ require_once __DIR__ . '/../views/layouts/header.php';
             </p>
         </div>
         
-        <!-- Confetti Effect -->
-        <div id="confetti-container" class="fixed inset-0 pointer-events-none" style="z-index: 9999;"></div>
-        
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <a href="/dashboard.php" class="btn-primary px-8 py-3 text-lg mr-2">
@@ -91,53 +88,8 @@ require_once __DIR__ . '/../views/layouts/header.php';
 .animate-bounce {
     animation: bounce 1s ease-in-out 2;
 }
-
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #f0f;
-    animation: confetti-fall 3s linear forwards;
-}
-
-@keyframes confetti-fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
 </style>
 
-<script>
-// Confetti effect
-function createConfetti() {
-    const container = document.getElementById('confetti-container');
-    const colors = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
-    const confettiCount = 50;
-    
-    for (let i = 0; i < confettiCount; i++) {
-        setTimeout(() => {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.animationDelay = Math.random() * 0.5 + 's';
-            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            container.appendChild(confetti);
-            
-            setTimeout(() => confetti.remove(), 3500);
-        }, i * 30);
-    }
-}
 
-// Trigger confetti on page load
-window.addEventListener('DOMContentLoaded', () => {
-    createConfetti();
-    
-    // Play success sound (optional - can be added if you have a sound file)
-    // const audio = new Audio('/assets/sounds/success.mp3');
-    // audio.play().catch(() => {}); // Ignore if autoplay is blocked
-});
-</script>
 
 <?php require_once __DIR__ . '/../views/layouts/footer.php'; ?>
