@@ -9,9 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cycleId = (int)($_POST['cycle_id'] ?? 0);
         
         if (PDCACycleService::completeCycle($cycleId)) {
-            setFlashMessage('success', 'サイクルを完了し、新しいサイクルを開始しました。');
+            header('Location: /cycle/complete-success.php');
+            exit;
         } else {
             setFlashMessage('error', 'サイクルの完了に失敗しました。');
+            header('Location: /dashboard.php');
+            exit;
         }
     }
 }
