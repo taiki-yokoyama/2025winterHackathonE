@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Redirect to HTTPS (uncomment in production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve static files directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Route requests to appropriate PHP files
+RewriteRule ^$ index.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^register$ register.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^dashboard$ dashboard.php [L]
+RewriteRule ^evaluation/create$ evaluation/create.php [L]
+RewriteRule ^evaluation/list$ evaluation/list.php [L]
+RewriteRule ^next-action/create$ next-action/create.php [L]
+RewriteRule ^next-action/list$ next-action/list.php [L]
+RewriteRule ^cycle/complete$ cycle/complete.php [L]
