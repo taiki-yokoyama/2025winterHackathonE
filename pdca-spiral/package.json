@@ -1,0 +1,15 @@
+{
+  "name": "pdca-spiral",
+  "version": "1.0.0",
+  "description": "PDCA cycle tracking application",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/styles.css --watch",
+    "build": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/styles.css --minify"
+  },
+  "keywords": ["pdca", "team", "management"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

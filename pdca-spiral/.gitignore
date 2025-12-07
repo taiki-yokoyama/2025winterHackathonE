@@ -1,0 +1,6 @@
+.env
+/vendor/
+/node_modules/
+/docker/mysql/db/
+*.log
+.DS_Store
