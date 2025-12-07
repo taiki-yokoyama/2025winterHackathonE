@@ -96,15 +96,18 @@ body {
 .text-red-500 { color: #d32f2f; }
 .text-red-600 { color: #c62828; }
 .text-red-700 { color: #b71c1c; }
-.text-blue-800 { color: #4527a0; }
+.text-blue-600 { color: #1976d2; }
+.text-blue-700 { color: #1565c0; }
+.text-blue-800 { color: #0d47a1; }
 .text-green-800 { color: #2e7d32; }
 .text-orange-600 { color: #f57c00; }
 
 .bg-white { background-color: #ffffff; }
 .bg-gray-100 { background-color: #f5f5f5; }
 .bg-gray-200 { background-color: #eeeeee; }
-.bg-blue-50 { background-color: #ede7f6; }
-.bg-blue-100 { background-color: #d1c4e9; }
+.bg-blue-50 { background-color: #e3f2fd; }
+.bg-blue-100 { background-color: #bbdefb; }
+.bg-blue-700 { background-color: #1976d2; }
 .bg-green-100 { background-color: #c8e6c9; }
 .bg-red-100 { background-color: #ffcdd2; }
 .bg-red-400 { background-color: #ef5350; }
@@ -146,7 +149,7 @@ body {
 
 /* Custom Components - Academic Theme */
 .btn-primary {
-  background: #5e35b1;
+  background: #1976d2;
   color: white;
   font-weight: 600;
   padding: 0.6rem 1.8rem;
@@ -160,17 +163,17 @@ body {
 }
 
 .btn-primary:hover {
-  background: #4527a0;
+  background: #1565c0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
   background: white;
-  color: #5e35b1;
+  color: #1976d2;
   font-weight: 600;
   padding: 0.6rem 1.8rem;
   border-radius: 4px;
-  border: 1px solid #5e35b1;
+  border: 1px solid #1976d2;
   transition: all 0.2s ease;
   display: inline-block;
   text-decoration: none;
@@ -178,8 +181,8 @@ body {
 }
 
 .btn-secondary:hover {
-  background: #f3e5f5;
-  border-color: #4527a0;
+  background: #e3f2fd;
+  border-color: #1565c0;
 }
 
 .card {
@@ -210,8 +213,8 @@ body {
 }
 
 .input-field:focus {
-  border-color: #5e35b1;
-  box-shadow: 0 0 0 2px rgba(94, 53, 177, 0.1);
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
 }
 
 .input-field::placeholder {
@@ -219,7 +222,7 @@ body {
 }
 
 .spiral-gradient {
-  background: linear-gradient(135deg, #5e35b1 0%, #7e57c2 100%);
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
 }
 
 .bg-clip-text {
@@ -273,13 +276,13 @@ body {
   top: 0.5rem;
   width: 4px;
   height: 4px;
-  background: #5e35b1;
+  background: #1976d2;
   border-radius: 50%;
 }
 
 /* Navigation Bar - Academic Style */
 nav {
-  background: #5e35b1;
+  background: #1976d2;
   border-bottom: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -308,7 +311,7 @@ footer {
 .score-badge {
   min-width: 50px;
   height: 50px;
-  background: #5e35b1;
+  background: #1976d2;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -331,6 +334,6 @@ textarea.input-field {
   position: relative;
   padding: 1rem;
   background: #f5f5f5;
-  border-left: 4px solid #5e35b1;
+  border-left: 4px solid #1976d2;
   border-radius: 4px;
 }

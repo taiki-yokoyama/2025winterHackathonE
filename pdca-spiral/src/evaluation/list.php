@@ -79,8 +79,8 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 <line x1="25" y1="45" x2="45" y2="45" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
                 <defs>
                     <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#5e35b1;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#7e57c2;stop-opacity:1" />
+                        <stop offset="0%" style="stop-color:#1976d2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -100,7 +100,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
         <?php foreach ($evaluationsByCycle as $cycleId => $cycleEvaluations): ?>
         <!-- Cycle Header -->
         <div>
-            <div class="card mb-3" style="background: linear-gradient(135deg, #5e35b1 0%, #7e57c2 100%);">
+            <div class="card mb-3" style="background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="text-lg font-bold text-white">
@@ -125,7 +125,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 <div class="card">
                     <div class="flex justify-between items-start mb-3">
                         <div class="flex items-center" style="gap: 1rem;">
-                            <div class="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold" style="width: 44px; height: 44px; min-width: 44px; background: linear-gradient(135deg, #5e35b1 0%, #7e57c2 100%); box-shadow: 0 2px 4px rgba(94, 53, 177, 0.3); font-size: 1.125rem;">
+                            <div class="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold" style="width: 44px; height: 44px; min-width: 44px; background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%); box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3); font-size: 1.125rem;">
                                 <?php echo $evaluation->getScore(); ?>
                             </div>
                             <div>

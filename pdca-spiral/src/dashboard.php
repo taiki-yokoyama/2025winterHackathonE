@@ -48,7 +48,7 @@ require_once __DIR__ . '/views/layouts/header.php';
     <div class="mb-6">
         <div class="flex justify-between items-start">
             <div>
-                <h1 class="text-3xl font-bold mb-2" style="color: #5e35b1;">
+                <h1 class="text-3xl font-bold mb-2" style="color: #1976d2;">
                     ようこそ、<?php echo e(getCurrentUsername()); ?>さん
                 </h1>
                 <p class="text-gray-600">継続的な改善で、チームを次のレベルへ</p>
@@ -56,7 +56,7 @@ require_once __DIR__ . '/views/layouts/header.php';
             <?php if ($team): ?>
             <div class="text-right">
                 <div class="text-sm text-gray-600">チーム</div>
-                <div class="text-xl font-bold" style="color: #5e35b1;">
+                <div class="text-xl font-bold" style="color: #1976d2;">
                     <?php echo e($team->getTeamName()); ?>
                 </div>
                 <div class="text-sm text-gray-500">
@@ -79,8 +79,8 @@ require_once __DIR__ . '/views/layouts/header.php';
                 <path d="M 40 5 Q 60 20, 60 40 T 40 75 Q 20 60, 20 40 T 40 5" stroke="url(#gradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
                 <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#5e35b1;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#7e57c2;stop-opacity:1" />
+                        <stop offset="0%" style="stop-color:#1976d2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -102,7 +102,7 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Cycle Number -->
         <div class="card text-center">
             <p class="text-gray-600 mb-2 text-sm">現在の週</p>
-            <p class="text-3xl font-bold" style="color: #5e35b1;">
+            <p class="text-3xl font-bold" style="color: #1976d2;">
                 <?php echo $currentCycle->getCycleNumber(); ?>週間目
             </p>
         </div>
@@ -110,7 +110,7 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Average Score -->
         <div class="card text-center">
             <p class="text-gray-600 mb-2 text-sm">平均スコア</p>
-            <p class="text-3xl font-bold" style="color: #5e35b1;">
+            <p class="text-3xl font-bold" style="color: #1976d2;">
                 <?php echo number_format($statistics['average_score'], 1); ?>
             </p>
         </div>
@@ -118,7 +118,7 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Evaluations Count -->
         <div class="card text-center">
             <p class="text-gray-600 mb-2 text-sm">評価数</p>
-            <p class="text-3xl font-bold" style="color: #5e35b1;">
+            <p class="text-3xl font-bold" style="color: #1976d2;">
                 <?php echo $statistics['evaluation_count']; ?>
             </p>
         </div>
@@ -126,7 +126,7 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Actions Count -->
         <div class="card text-center">
             <p class="text-gray-600 mb-2 text-sm">アクション</p>
-            <p class="text-3xl font-bold" style="color: #5e35b1;">
+            <p class="text-3xl font-bold" style="color: #1976d2;">
                 <?php echo $statistics['action_stats']['completed']; ?> / <?php echo $statistics['action_count']; ?>
             </p>
         </div>
@@ -134,16 +134,16 @@ require_once __DIR__ . '/views/layouts/header.php';
     
     <!-- Team Members Section -->
     <div class="card mb-6">
-        <h2 class="text-xl font-semibold mb-4" style="color: #5e35b1;">チームメンバー</h2>
+        <h2 class="text-xl font-semibold mb-4" style="color: #1976d2;">チームメンバー</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
             <?php foreach ($teamMembers as $member): ?>
-            <div class="p-3 bg-gray-50 rounded text-center <?php echo $member->getId() === $userId ? 'border-2' : ''; ?>" style="<?php echo $member->getId() === $userId ? 'border-color: #5e35b1;' : ''; ?>">
-                <div class="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold" style="background: #5e35b1;">
+            <div class="p-3 bg-gray-50 rounded text-center <?php echo $member->getId() === $userId ? 'border-2' : ''; ?>" style="<?php echo $member->getId() === $userId ? 'border-color: #1976d2;' : ''; ?>">
+                <div class="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold" style="background: #1976d2;">
                     <?php echo mb_substr($member->getUsername(), 0, 1); ?>
                 </div>
                 <div class="font-semibold text-sm"><?php echo e($member->getUsername()); ?></div>
                 <?php if ($member->getId() === $userId): ?>
-                <div class="text-xs text-purple-600">あなた</div>
+                <div class="text-xs text-blue-600">あなた</div>
                 <?php endif; ?>
             </div>
             <?php endforeach; ?>
@@ -155,8 +155,8 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Team Evaluations -->
         <div class="card">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold" style="color: #5e35b1;">チームの評価</h2>
-                <a href="/evaluation/list.php" style="color: #5e35b1;" class="hover:underline text-sm">
+                <h2 class="text-xl font-semibold" style="color: #1976d2;">チームの評価</h2>
+                <a href="/evaluation/list.php" style="color: #1976d2;" class="hover:underline text-sm">
                     すべて見る →
                 </a>
             </div>
@@ -164,7 +164,7 @@ require_once __DIR__ . '/views/layouts/header.php';
             <?php if (empty($recentEvaluations)): ?>
             <div class="text-center py-8 text-gray-500">
                 <p>まだ評価がありません</p>
-                <a href="/weekly-review/create.php" style="color: #5e35b1;" class="hover:underline mt-2 inline-block">
+                <a href="/weekly-review/create.php" style="color: #1976d2;" class="hover:underline mt-2 inline-block">
                     週次レビューを記録
                 </a>
             </div>
@@ -174,7 +174,7 @@ require_once __DIR__ . '/views/layouts/header.php';
                 <div class="p-3 bg-gray-50 rounded">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center" style="gap: 1rem;">
-                            <div class="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold" style="width: 40px; height: 40px; min-width: 40px; background: linear-gradient(135deg, #5e35b1 0%, #7e57c2 100%); box-shadow: 0 2px 4px rgba(94, 53, 177, 0.3); font-size: 1rem;">
+                            <div class="flex-shrink-0 rounded-full flex items-center justify-center text-white font-bold" style="width: 40px; height: 40px; min-width: 40px; background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%); box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3); font-size: 1rem;">
                                 <?php echo $evaluation->getScore(); ?>
                             </div>
                             <span class="font-semibold text-gray-800" style="font-size: 0.95rem;">
@@ -203,8 +203,8 @@ require_once __DIR__ . '/views/layouts/header.php';
         <!-- Team Actions -->
         <div class="card">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold" style="color: #5e35b1;">チームのアクション</h2>
-                <a href="/next-action/list.php" style="color: #5e35b1;" class="hover:underline text-sm">
+                <h2 class="text-xl font-semibold" style="color: #1976d2;">チームのアクション</h2>
+                <a href="/next-action/list.php" style="color: #1976d2;" class="hover:underline text-sm">
                     すべて見る →
                 </a>
             </div>
@@ -212,7 +212,7 @@ require_once __DIR__ . '/views/layouts/header.php';
             <?php if (empty($pendingActions)): ?>
             <div class="text-center py-8 text-gray-500">
                 <p>進行中のアクションがありません</p>
-                <a href="/weekly-review/create.php" style="color: #5e35b1;" class="hover:underline mt-2 inline-block">
+                <a href="/weekly-review/create.php" style="color: #1976d2;" class="hover:underline mt-2 inline-block">
                     週次レビューでアクションを設定
                 </a>
             </div>
@@ -225,7 +225,7 @@ require_once __DIR__ . '/views/layouts/header.php';
                             <span class="text-sm font-semibold text-gray-800">
                                 <?php echo e($action->getUsername()); ?>
                             </span>
-                            <span class="inline-block px-2 py-1 text-xs rounded" style="<?php echo $action->getStatus() === 'in_progress' ? 'background: #d1c4e9; color: #4527a0;' : 'background: #f5f5f5; color: #666;'; ?>">
+                            <span class="inline-block px-2 py-1 text-xs rounded" style="<?php echo $action->getStatus() === 'in_progress' ? 'background: #bbdefb; color: #1565c0;' : 'background: #f5f5f5; color: #666;'; ?>">
                                 <?php echo $action->getStatus() === 'in_progress' ? '進行中' : '未着手'; ?>
                             </span>
                         </div>
@@ -251,7 +251,7 @@ require_once __DIR__ . '/views/layouts/header.php';
     
     <!-- Spiral Visualization -->
     <div class="card mb-6">
-        <h2 class="text-xl font-semibold mb-4" style="color: #5e35b1;">評価の推移</h2>
+        <h2 class="text-xl font-semibold mb-4" style="color: #1976d2;">評価の推移</h2>
         <div id="spiralVisualization" class="w-full h-96 bg-gray-50 rounded flex items-center justify-center">
             <canvas id="spiralCanvas" width="800" height="400"></canvas>
         </div>
@@ -262,7 +262,7 @@ require_once __DIR__ . '/views/layouts/header.php';
     
     <!-- Cycle Management -->
     <div class="card">
-        <h2 class="text-xl font-semibold mb-4" style="color: #5e35b1;">週の管理</h2>
+        <h2 class="text-xl font-semibold mb-4" style="color: #1976d2;">週の管理</h2>
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-600">
