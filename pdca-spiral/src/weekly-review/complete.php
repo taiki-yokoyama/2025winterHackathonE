@@ -27,7 +27,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
         
         <!-- Success Message -->
         <h1 class="text-4xl font-bold mb-4" style="color: #22c55e;">
-            🎉 お疲れ様でした！
+            1週間お疲れ様でした！
         </h1>
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">
             週次レビューが完了しました
@@ -40,7 +40,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
         <!-- Motivational Message -->
         <div class="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6 mb-8 max-w-xl mx-auto">
             <p class="text-gray-700 font-medium mb-2">
-                💪 PDCAサイクルを回し続けることで
+                 PDCAサイクルを回し続けることで
             </p>
             <p class="text-gray-600">
                 チームは着実に成長していきます。<br>
@@ -53,10 +53,10 @@ require_once __DIR__ . '/../views/layouts/header.php';
         
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-            <a href="/dashboard.php" class="btn-primary px-8 py-3 text-lg">
-                ダッシュボードへ
+            <a href="/dashboard.php" class="btn-primary px-8 py-3 text-lg mr-2">
+                ホームへ
             </a>
-            <a href="/next-action/list.php" class="btn-secondary px-8 py-3 text-lg">
+            <a href="/next-action/list.php" class="btn-secondary px-8 py-3 text-lg ml-2">
                 アクション一覧を見る
             </a>
         </div>
