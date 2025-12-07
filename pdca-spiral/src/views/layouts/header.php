@@ -15,7 +15,7 @@
     ?>
     
     <!-- Navigation - Clean & Simple -->
-    <nav style="background: #5e35b1; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <nav style="background: #1976d2; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
@@ -54,7 +54,7 @@
                     <a href="/login.php" class="text-white font-medium text-sm" style="padding: 8px 16px; transition: opacity 0.2s;">
                         ログイン
                     </a>
-                    <a href="/register.php" class="bg-white text-purple-700 px-5 py-2 rounded-lg text-sm font-semibold" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">
+                    <a href="/register.php" class="bg-white text-blue-700 px-5 py-2 rounded-lg text-sm font-semibold" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">
                         新規登録
                     </a>
                 </div>

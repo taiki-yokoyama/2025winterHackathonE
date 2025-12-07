@@ -61,22 +61,22 @@ require_once __DIR__ . '/../views/layouts/header.php';
         <!-- Progress Indicator -->
         <div class="mb-8">
             <div class="flex items-center justify-between mb-2">
-                <span class="text-sm font-semibold <?php echo $step >= 1 ? 'text-purple-700' : 'text-gray-400'; ?>">
+                <span class="text-sm font-semibold <?php echo $step >= 1 ? 'text-blue-700' : 'text-gray-400'; ?>">
                     1. 評価
                 </span>
-                <span class="text-sm font-semibold <?php echo $step >= 2 ? 'text-purple-700' : 'text-gray-400'; ?>">
+                <span class="text-sm font-semibold <?php echo $step >= 2 ? 'text-blue-700' : 'text-gray-400'; ?>">
                     2. 振り返り
                 </span>
-                <span class="text-sm font-semibold <?php echo $step >= 3 ? 'text-purple-700' : 'text-gray-400'; ?>">
+                <span class="text-sm font-semibold <?php echo $step >= 3 ? 'text-blue-700' : 'text-gray-400'; ?>">
                     3. アクション
                 </span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
-                <div class="bg-purple-700 h-2 rounded-full transition-all duration-300" style="width: <?php echo ($step / 3) * 100; ?>%"></div>
+                <div class="bg-blue-700 h-2 rounded-full transition-all duration-300" style="width: <?php echo ($step / 3) * 100; ?>%"></div>
             </div>
         </div>
 
-        <h1 class="text-2xl font-bold mb-2" style="color: #5e35b1;">
+        <h1 class="text-2xl font-bold mb-2" style="color: #1976d2;">
             週次レビュー
         </h1>
         <p class="text-gray-600 mb-6">
@@ -121,8 +121,8 @@ require_once __DIR__ . '/../views/layouts/header.php';
                         >
                         <span class="text-gray-600 text-sm">10点</span>
                     </div>
-                    <div class="text-center p-6 bg-gray-50 rounded" style="border: 2px solid #5e35b1;">
-                        <div class="text-5xl font-bold mb-2" style="color: #5e35b1;" id="scoreValue">
+                    <div class="text-center p-6 bg-gray-50 rounded" style="border: 2px solid #1976d2;">
+                        <div class="text-5xl font-bold mb-2" style="color: #1976d2;" id="scoreValue">
                             <?php echo e($formData['score'] ?? '5'); ?>
                         </div>
                         <div class="text-sm text-gray-600" id="scoreLabel">普通</div>
@@ -144,9 +144,9 @@ require_once __DIR__ . '/../views/layouts/header.php';
                     このスコアをつけた理由や要因を具体的に記入してください
                 </p>
                 
-                <div class="mb-4 p-4 bg-purple-50 rounded">
+                <div class="mb-4 p-4 bg-blue-50 rounded">
                     <div class="text-sm text-gray-600 mb-1">あなたの評価</div>
-                    <div class="text-3xl font-bold" style="color: #5e35b1;">
+                    <div class="text-3xl font-bold" style="color: #1976d2;">
                         <?php echo e($formData['score']); ?>点
                     </div>
                 </div>
@@ -185,7 +185,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 
                 <div class="mb-4 p-4 bg-gray-50 rounded">
                     <div class="text-sm text-gray-600 mb-2">今週の評価</div>
-                    <div class="text-2xl font-bold mb-3" style="color: #5e35b1;">
+                    <div class="text-2xl font-bold mb-3" style="color: #1976d2;">
                         <?php echo e($formData['score']); ?>点
                     </div>
                     <div class="text-sm text-gray-700 whitespace-pre-wrap">

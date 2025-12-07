@@ -32,7 +32,7 @@ require_once __DIR__ . '/views/layouts/header.php';
 
 <div class="max-w-md mx-auto">
     <div class="card">
-        <h1 class="text-2xl font-bold text-center mb-6" style="color: #5e35b1;">
+        <h1 class="text-2xl font-bold text-center mb-6" style="color: #1976d2;">
             新規登録
         </h1>
         
@@ -120,7 +120,7 @@ require_once __DIR__ . '/views/layouts/header.php';
             
             <!-- Team Selection -->
             <div class="mb-4 p-4 bg-gray-50 rounded">
-                <h3 class="font-semibold mb-3" style="color: #5e35b1;">チーム設定</h3>
+                <h3 class="font-semibold mb-3" style="color: #1976d2;">チーム設定</h3>
                 
                 <div class="mb-4">
                     <label class="flex items-center mb-2">
@@ -200,7 +200,7 @@ require_once __DIR__ . '/views/layouts/header.php';
         <div class="mt-6 text-center">
             <p class="text-gray-600">
                 既にアカウントをお持ちですか？
-                <a href="/login.php" style="color: #5e35b1;" class="hover:underline">
+                <a href="/login.php" style="color: #1976d2;" class="hover:underline">
                     ログイン
                 </a>
             </p>

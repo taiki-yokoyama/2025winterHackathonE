@@ -23,7 +23,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
 
 <div class="max-w-4xl mx-auto">
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold" style="color: #5e35b1;">
+        <h1 class="text-2xl font-bold" style="color: #1976d2;">
             チームのアクション
         </h1>
         <a href="/weekly-review/create.php" class="btn-primary">
@@ -41,8 +41,8 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 <circle cx="40" cy="40" r="3" fill="url(#gradient3)"/>
                 <defs>
                     <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#5e35b1;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#7e57c2;stop-opacity:1" />
+                        <stop offset="0%" style="stop-color:#1976d2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -74,7 +74,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
     
     $statusLabels = [
         'pending' => ['label' => '未着手', 'color' => 'background: #f5f5f5; color: #666;'],
-        'in_progress' => ['label' => '進行中', 'color' => 'background: #d1c4e9; color: #4527a0;'],
+        'in_progress' => ['label' => '進行中', 'color' => 'background: #bbdefb; color: #1565c0;'],
         'completed' => ['label' => '完了', 'color' => 'background: #c8e6c9; color: #2e7d32;'],
         'cancelled' => ['label' => 'キャンセル', 'color' => 'background: #ffcdd2; color: #c62828;']
     ];
@@ -96,7 +96,7 @@ require_once __DIR__ . '/../views/layouts/header.php';
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
                             <div class="flex items-center gap-2 mb-2">
-                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background: #5e35b1;">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background: #1976d2;">
                                     <?php echo mb_substr($action->getUsername(), 0, 1); ?>
                                 </div>
                                 <span class="font-semibold text-gray-800">
