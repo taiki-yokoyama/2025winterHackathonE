@@ -53,10 +53,10 @@
                 </div>
                 <?php else: ?>
                 <div class="flex items-center space-x-4">
-                    <a href="/login.php" class="text-white font-medium text-sm" style="padding: 8px 16px; transition: opacity 0.2s;">
+                    <a href="/login.php" class="text-white font-medium text-sm" style="padding: 8px 16px; border-radius: 6px; transition: background 0.2s;">
                         ログイン
                     </a>
-                    <a href="/register.php" class="bg-white text-blue-700 px-5 py-2 rounded-lg text-sm font-semibold" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">
+                    <a href="/register.php" class="text-white font-medium text-sm" style="padding: 8px 16px; border-radius: 6px; transition: background 0.2s;">
                         新規登録
                     </a>
                 </div>
@@ -74,13 +74,9 @@
             background: rgba(255,255,255,0.2) !important;
         }
         
-        a[href="/login.php"]:hover {
-            opacity: 0.8;
-        }
-        
+        a[href="/login.php"]:hover,
         a[href="/register.php"]:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            transform: translateY(-1px);
+            background: rgba(255,255,255,0.12);
         }
     </style>
     
