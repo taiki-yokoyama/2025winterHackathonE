@@ -301,6 +301,14 @@ const evaluationData = <?php echo json_encode(array_map(function($e) {
         'username' => $e->getUsername()
     ];
 }, $recentEvaluations)); ?>;
+
+// Pass weekly chart data to JavaScript for chart rendering
+const weeklyChartData = <?php 
+    $weeklyData = $dashboardData['weekly_chart_data'] ?? [];
+    error_log("Weekly chart data count: " . count($weeklyData));
+    error_log("Weekly chart data: " . json_encode($weeklyData));
+    echo json_encode($weeklyData); 
+?>;
 </script>
 
 <?php require_once __DIR__ . '/views/layouts/footer.php'; ?>
