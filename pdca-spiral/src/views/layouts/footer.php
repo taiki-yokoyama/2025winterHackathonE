@@ -4,7 +4,7 @@
     <footer class="bg-white border-t mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="text-center text-gray-600">
-                <p>&copy; 2025 PDCA Spiral. 継続的な改善をサポートします。</p>
+                <p>PDCA Spiral.③チーム開発2冠へ意味のある振り返りを </p>
             </div>
         </div>
     </footer>
