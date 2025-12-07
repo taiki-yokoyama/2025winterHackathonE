@@ -236,6 +236,12 @@ require_once __DIR__ . '/../views/layouts/header.php';
             
             <!-- Navigation Buttons -->
             <div class="flex space-x-4">
+                <?php if ($step == 1): ?>
+                <a href="/dashboard.php" class="btn-secondary flex-1 text-center">
+                    キャンセル
+                </a>
+                <?php endif; ?>
+                
                 <?php if ($step > 1): ?>
                 <button type="button" onclick="history.back()" class="btn-secondary flex-1">
                     戻る
@@ -245,12 +251,6 @@ require_once __DIR__ . '/../views/layouts/header.php';
                 <button type="submit" class="btn-primary flex-1">
                     <?php echo $step == 3 ? '完了' : '次へ'; ?>
                 </button>
-                
-                <?php if ($step == 1): ?>
-                <a href="/dashboard.php" class="btn-secondary flex-1 text-center">
-                    キャンセル
-                </a>
-                <?php endif; ?>
             </div>
         </form>
     </div>
