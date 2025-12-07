@@ -35,8 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $formData = $_POST;
                 } else {
                     Database::commit();
-                    setFlashMessage('success', '週次レビューを完了しました！');
-                    header('Location: /dashboard.php');
+                    header('Location: /weekly-review/complete.php');
                     exit;
                 }
             }
