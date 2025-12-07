@@ -227,35 +227,46 @@ class Evaluation {
         try {
             $db = Database::getConnection();
             
-            // Calculate Monday of each week using DAYOFWEEK()
-            // DAYOFWEEK() returns 1 for Sunday, 2 for Monday, etc.
-            // Formula: (DAYOFWEEK(date) + 5) % 7 gives days since Monday
+            // Group by cycle_number instead of actual date
             $stmt = $db->prepare(
                 "SELECT 
-                    DATE_SUB(DATE(created_at), INTERVAL (DAYOFWEEK(created_at) + 5) % 7 DAY) as week_start,
-                    AVG(score) as average_score,
-                    COUNT(*) as evaluation_count
-                 FROM evaluations
-                 WHERE team_id = :team_id
-                 GROUP BY week_start
-                 ORDER BY week_start ASC"
+                    c.cycle_number,
+                    c.start_date as week_start,
+                    c.end_date as week_end,
+                    AVG(e.score) as average_score,
+                    COUNT(e.id) as evaluation_count
+                 FROM pdca_cycles c
+                 LEFT JOIN evaluations e ON c.id = e.cycle_id
+                 WHERE c.team_id = :team_id
+                 GROUP BY c.cycle_number, c.start_date, c.end_date
+                 ORDER BY c.cycle_number ASC"
             );
             
             $stmt->execute([':team_id' => $teamId]);
             
             $weeklyData = [];
             while ($row = $stmt->fetch()) {
-                // Calculate week_end (Sunday) from week_start (Monday)
-                $weekStart = new DateTime($row['week_start']);
-                $weekEnd = clone $weekStart;
-                $weekEnd->modify('+6 days');
-                
-                $weeklyData[] = [
-                    'week_start' => $row['week_start'],
-                    'week_end' => $weekEnd->format('Y-m-d'),
-                    'average_score' => (float)$row['average_score'],
-                    'evaluation_count' => (int)$row['evaluation_count']
-                ];
+                // Only include cycles that have evaluations
+                if ($row['evaluation_count'] > 0) {
+                    // Calculate week_end as 6 days after week_start if not set
+                    $weekStart = $row['week_start'];
+                    $weekEnd = $row['week_end'];
+                    
+                    if (empty($weekEnd) || $weekEnd === $weekStart) {
+                        $startDate = new DateTime($weekStart);
+                        $endDate = clone $startDate;
+                        $endDate->modify('+6 days');
+                        $weekEnd = $endDate->format('Y-m-d');
+                    }
+                    
+                    $weeklyData[] = [
+                        'cycle_number' => (int)$row['cycle_number'],
+                        'week_start' => $weekStart,
+                        'week_end' => $weekEnd,
+                        'average_score' => (float)$row['average_score'],
+                        'evaluation_count' => (int)$row['evaluation_count']
+                    ];
+                }
             }
             
             return $weeklyData;
