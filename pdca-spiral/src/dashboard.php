@@ -39,7 +39,7 @@ $team = Team::findById($teamId);
 $teamMembers = $team ? $team->getMembers() : [];
 
 $pageTitle = 'ダッシュボード - PDCA Portal';
-$additionalScripts = ['/assets/js/spiral-visualization.js'];
+$additionalScripts = ['/assets/js/progress-chart.js'];
 require_once __DIR__ . '/views/layouts/header.php';
 ?>
 
@@ -249,14 +249,20 @@ require_once __DIR__ . '/views/layouts/header.php';
         </div>
     </div>
     
-    <!-- Spiral Visualization -->
+    <!-- Progress Chart Visualization -->
     <div class="card mb-6">
         <h2 class="text-xl font-semibold mb-4" style="color: #1976d2;">評価の推移</h2>
-        <div id="spiralVisualization" class="w-full h-96 bg-gray-50 rounded flex items-center justify-center">
-            <canvas id="spiralCanvas" width="800" height="400"></canvas>
+        <div class="w-full bg-gray-50 rounded p-4" style="height: 400px;">
+            <canvas id="progressChart"></canvas>
         </div>
-        <div class="mt-4 text-center text-gray-600 text-sm">
-            螺旋階段のように、繰り返しながら上昇する改善プロセス
+        <div class="mt-4 text-center">
+            <div class="inline-flex items-center gap-2 text-sm">
+                <span class="text-gray-600">平均スコア:</span>
+                <span id="avgScore" class="text-2xl font-bold" style="color: #1976d2;">-</span>
+            </div>
+        </div>
+        <div class="mt-2 text-center text-gray-500 text-sm">
+            チームの成長を視覚的に追跡
         </div>
     </div>
     
